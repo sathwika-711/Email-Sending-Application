@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Email Sending Application</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="myForm">
+            <!-- From address -->
+            <label id="from">From:</label>
+            <input type="email" placeholder="ex:example.12@gmail.com"> <br>
+
+            <!-- To address -->
+            <label >To: *</label>
+            <input type="email" id="to" placeholder="ex:example.12@gmail.com" required> <br>
+
+            <!-- Subject -->
+            <label >Subject: *</label>
+            <input type="text" id = "subject" placeholder="Write Subject here...." required> <br>
+
+            <!-- Body -->
+            <label name="info">Body: *</label> <br>
+            <textarea id ="body" cols="12" rows="5" required></textarea> <br>
+
+            <!-- Attachments -->
+            <label name="attach" id="attach">Attachments:</label>
+            <select name="format" id="format">
+                <option>Attach File</option>
+                <option>Insert photo</option>
+                <option>Insert from Drive</option>
+            </select> <br>
+
+            <!-- Button field -->
+            <!-- <input type="button" value="Send"> -->
+
+            <input type="submit" value="Send" id="send-mail"">
+        </form>
+        <!-- <p id="error-message" style="color:red;"></p> -->
+    </div>
+        </body>
+<script src="{{url_for('static',filename='script.js')}}"></script>
+
+</body>
+</html> 
