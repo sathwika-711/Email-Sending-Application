@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, jsonify, render_template, request, url_for, redirect
 from flask_cors import CORS
 import mail_server_props
 import base64
+import traceback
 
 
 app = Flask(__name__)
@@ -26,18 +27,21 @@ def mail_body():
     # get data from JSON data of Javascript
     data = request.get_json()
     print("printing email info :", data)
+    sender_name = data["sender_name"]
+    receiver_name = data["receiver_name"]
     to_email = data["to"]
     print("To: ", to_email)
     sub = data["subject"]
     body = data["body"]
-    attachments = data["attachments"]  # attachments
-
+    attachments = data["attachments"]  # attachments 
     # write_to_file(attachments)
-
-    mail_server_props.send_mail_with_details(
-        "", to_email, sub, body, attachments)
-    # mail_server_props.send_mail(to_email, msg)
-    return "Email sent Successfully..!!"
+    if sender_name is not None and receiver_name is not None:  
+        to_email = f'{receiver_name} <{to_email}>'
+        mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
+    
+    else:
+        mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
+    return jsonify({"message" : "Email sent Successfully..!!"})
 
 
 # List to store sent messages
@@ -88,6 +92,23 @@ def write_to_file(attachments):
         f.close()
 
     pass
+
+
+
+# Custom error handler to send back exception messages
+@app.errorhandler(Exception)
+def handle_exception(e):
+
+    # Log the stack trace (optional, you could log it to a file or system log)
+    stack_trace = traceback.format_exc()
+    print(stack_trace)
+
+    response = {
+        'message': str(e)
+    }
+    return jsonify(response), 500  # Return a 500 Internal Server Error with the exception message
+
+
 
 
 if __name__ == "__main__":

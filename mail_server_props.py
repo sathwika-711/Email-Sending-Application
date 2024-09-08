@@ -42,13 +42,15 @@ def send_mail(receiver_email, email_content):
 
 
 # Sending mail with details
-def send_mail_with_details(receiver_email, to_email, subject, body, attachments):
+def send_mail_with_details(sender_name, to_email, subject, body, attachments):
     # fetch the attachments
     file_name = attachments["file_name"]
     file_content = attachments["file_content"]
-
+    if sender_name is None:
+        sender_name = ""
+    sender_name = f'{sender_name} <{user_name}>'
     msg = MIMEMultipart()
-    msg['From'] = receiver_email
+    msg['From'] = sender_name
     msg['To'] = to_email
     msg['Subject'] = subject
 

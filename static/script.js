@@ -21,8 +21,9 @@ let file_name = null
 function sendData() {
     // confirm("send this message?")
     // fetching values from Html fields
-    from_email = document.getElementById("from").value;
+    sender_name = document.getElementById("from_name").value;
     to_email = document.getElementById("to").value;
+    receiver_name = document.getElementById("to_name").value;
     subject = document.getElementById("subject").value;
     body = document.getElementById("body").value;
 
@@ -39,8 +40,9 @@ function sendData() {
     }
 
     // displaying the fetched values
-    console.log(from_email);
+    console.log(sender_name);
     console.log(to_email);
+    console.log(receiver_name);
     console.log(subject);
     console.log(body);
 
@@ -50,7 +52,9 @@ function sendData() {
 
     // creating json data
     var raw = JSON.stringify({
+        sender_name: sender_name,
         to: to_email,
+        receiver_name: receiver_name,
         subject: subject,
         body: body,
         attachments: {
@@ -71,12 +75,12 @@ function sendData() {
     //call to backend
     // Fetch message from Flask and show in the alert box
     fetch("http://192.168.100.8:5000/sendmail", requestOptions) // Fetches the message from Flask route
-        .then((response) => response.text()) // Parse JSON response
+        .then((response) => response.json()) // Parse JSON response
         .then((data) => {
             // Show custom alert with the returned message
-            showCustomAlert(data);
+            showCustomAlert(data['message']);
             document.getElementById("myForm").reset();
-            console.log("Message sent successfully" + data);
+            console.log("Message sent successfully " + data);
         })
         .catch((error) => {
             showCustomAlert("Error in Sending...!! \n" + error.message);

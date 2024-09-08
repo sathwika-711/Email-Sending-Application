@@ -13,13 +13,31 @@
     <div class="container">
 
         <form id="myForm">
-            <!-- From address -->
-            <label id="from">From:</label>
-            <input type="email" name="from" placeholder="ex:example.12@gmail.com"> <br>
+            <!-- Sender name -->
+            <label id="from">SenderName:</label>
+            <input type="text" id="from_name" placeholder="Sendername"> <br>
 
-            <!-- To address -->
-            <label class="required">To: </label>
+            <div class="receiver">
+                <!-- To address: receiver email-->
+                <div class="input-group">
+                    <label class="required">To MailID: </label>
+                    <input type="email" id="to" name="to" placeholder="ex:example.12@gmail.com" required>
+                </div>
+            
+                <!-- Receiver name -->
+                <div class="input-group">
+                    <label id="to_name">Receiver Name:</label>
+                    <input type="text" name="to_name" placeholder="Receiver name">
+                </div>
+            </div>
+            <br>            
+            <!-- To address: receiver email
+            <label class="required">To MailID: </label>
             <input type="email" id="to" name="to" placeholder="ex:example.12@gmail.com" required> <br>
+
+            <!-- Receiver name 
+            <label id="to_name">ReceiverName:</label>
+            <input type="text"  name="to_name" placeholder="Receivername"> <br> -->
 
             <!-- Subject -->
             <label class="required">Subject:</label>
