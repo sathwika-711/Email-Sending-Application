@@ -1,30 +1,32 @@
 /* General Styles */
+
+/* body styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('Email.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: url("Email.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('Email.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(10px); /* Blur effect */
-    z-index: -1; /* Ensure the pseudo-element is behind the content */
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("Email.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(10px); /* Blur effect */
+	z-index: -1; /* Ensure the pseudo-element is behind the content */
 }
 /* Container with white transparent background */
 /* .container {
@@ -39,98 +41,163 @@ body::before {
 } */
 /* Container with increased width and height */
 .container {
-    background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
-    padding: 25px; /* Increased padding */
-    border-radius: 15px; /* Slightly larger border radius */
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for better visibility */
-    width: 80%; /* Increased width (80% of viewport width) */
-    max-width: 800px; /* Maximum width for larger screens */
-    height: auto; /* Automatic height adjustment based on content */
-    min-height: 500px; /* Minimum height for better design */
-    box-sizing: border-box;
-    backdrop-filter: blur(10px); /* Optional: Apply a blur effect */
-    margin: 0 auto; /* Center the container horizontally */
+	background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+	padding: 25px; /* Increased padding */
+	border-radius: 15px; /* Slightly larger border radius */
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for better visibility */
+	width: 80%; /* Increased width (80% of viewport width) */
+	max-width: 800px; /* Maximum width for larger screens */
+	height: auto; /* Automatic height adjustment based on content */
+	min-height: 500px; /* Minimum height for better design */
+	box-sizing: border-box;
+	backdrop-filter: blur(10px); /* Optional: Apply a blur effect */
+	margin: 0 auto; /* Center the container horizontally */
 }
 
 /* Form Styles */
 form {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Input Fields */
 label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #333;
 }
 
 input[type="email"],
 input[type="text"],
 textarea,
 select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #f7ebeb;
-    border-radius: 6px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #f7ebeb;
+	border-radius: 6px;
+	font-size: 16px;
+	width: 100%;
+	box-sizing: border-box;
 }
 input[type="email"]:focus,
 input[type="text"]:focus,
 textarea:focus,
 select:focus {
-    border-color: #007bff;
-    outline: none;
+	border-color: #007bff;
+	outline: none;
 }
 /* Textarea */
 textarea {
-    resize: none;
-    /* background-color: #f7ebeb; */
-    /* border: 1px solid #f7ebeb; */
+	resize: none;
+	/* background-color: #f7ebeb; */
+	/* border: 1px solid #f7ebeb; */
 }
 
 /* Send Button */
 input[type="submit"] {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+	padding: 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 /* Attachments Dropdown */
 select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    /* background-color: #f7ebeb; */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	/* background-color: #f7ebeb; */
 }
 
 /* Error Message */
 #error-message {
-    color: red;
-    font-size: 14px;
+	color: red;
+	font-size: 14px;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .container {
-        max-width: 90%; /* Adjust width for tablets and small screens */
-        padding: 20px; /* Adjust padding */
-    }
+	.container {
+		max-width: 90%; /* Adjust width for tablets and small screens */
+		padding: 20px; /* Adjust padding */
+	}
 }
 
 @media (max-width: 480px) {
-    .container {
-        max-width: 95%; /* Adjust width for mobile devices */
-        padding: 15px; /* Adjust padding */
-    }
+	.container {
+		max-width: 95%; /* Adjust width for mobile devices */
+		padding: 15px; /* Adjust padding */
+	}
+}
+
+/* File Upload */
+
+/* Container for file upload */
+.file-upload-container {
+	display: flex; /* Align items side by side */
+	align-items: center; /* Vertically center items */
+	gap: 10px; /* Space between file input and button */
+	margin-top: 8px; /* Space above the container */
+}
+
+/* Styling for file name display */
+.file-name {
+	display: block; /* Display as block for new line */
+	margin-top: 10px; /* Space above file name */
+	font-size: 14px; /* Font size for file name */
+	color: #333; /* Color of file name text */
+}
+
+/* Alert box */
+
+/* Hide the alert by default */
+.alert-box {
+	display: none; /* Hidden by default */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Alert box content */
+.alert-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	width: 300px;
+}
+
+/* Button styling */
+.alert-content button {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.alert-content button:hover {
+	background-color: #45a049;
+}
+
+/* Required asterisk */
+label.required::after {
+	content: " *"; /* Adds a red asterisk */
+	color: red; /* Makes the asterisk red */
 }
