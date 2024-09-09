@@ -52,11 +52,11 @@ function sendData() {
 
     // creating json data
     var raw = JSON.stringify({
-        sender_name: sender_name,
+        "sender_name": sender_name,
         to: to_email,
-        receiver_name: receiver_name,
-        subject: subject,
-        body: body,
+        "receiver_name": receiver_name,
+        "subject": subject,
+        "body": body,
         attachments: {
             "file_name": file_name,
             "file_content": file_content
@@ -74,7 +74,7 @@ function sendData() {
 
     //call to backend
     // Fetch message from Flask and show in the alert box
-    fetch("http://192.168.100.8:5000/sendmail", requestOptions) // Fetches the message from Flask route
+    fetch("http://localhost:5000/sendmail", requestOptions) // Fetches the message from Flask route
         .then((response) => response.json()) // Parse JSON response
         .then((data) => {
             // Show custom alert with the returned message
