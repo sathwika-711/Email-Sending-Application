@@ -1,6 +1,7 @@
 /* General Styles */
 
 /* body styling */
+
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -39,6 +40,27 @@ body::before {
     max-width: 500px; /* Maximum width for larger screens 
     box-sizing: border-box;
 } */
+
+
+/* Centering the h1 heading at the top of the container */
+/* h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333; /* Change color as per your design 
+    margin-bottom: 20px; /* Space between the heading and container 
+    padding-top: 10px; /* Optional padding 
+    font-weight: bold;
+    z-index: 1; /* Ensures it stays above the blurred background 
+    position: relative;
+}
+
+/* Optional styling to ensure container doesn't overlap the heading 
+.container {
+    margin-top: 40px; /* Adjust margin to create space between the heading and the container 
+} */
+
+
+
 /* Container with increased width and height */
 .container {
 	background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */

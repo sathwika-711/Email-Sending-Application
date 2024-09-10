@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <!-- <h1>EMAIL SENDING APPLICATION</h1> -->
     <div class="container">
 
         <form id="myForm">
@@ -48,18 +48,6 @@
             <textarea id="body" name="body" cols="12" rows="5" required></textarea> <br>
 
             <!-- Attachments -->
-            <!-- <label name="attach" id="attach">Attachments:</label> -->
-            <!-- <label for="file" id="file-label">Attachments:</label>
-            <select id="format">
-                <option value="none">Select an option</option>
-                <option value="attach">Attach File</option>
-                <option value="photo">Insert photo</option>
-                <option>Insert from Drive</option>
-            </select> <br> -->
-            <!-- <input type="file" id="file" name="file" style="display: none;"> -->
-            <!-- Button field -->
-            <!-- <input type="button" value="Send"> -->
-
             <label for="file" id="file-label">Attachments:</label>
             <select id="format" onchange="handleFileTypeChange()">
                 <option value="none">Select an option</option>
@@ -72,6 +60,7 @@
             <input type="button" id="file-button" value="Attach" style="display:none">
             <p id="file-error" style="color:red; display:none;">File is too large.</p>
             <br> -->
+            <!-- file upload -->
             <div class="file-upload-container">
                 <input type="file" id="file-input" style="display: none;" accept="image/*,.pdf,.docx">
                 <input type="button" id="file-button" value="Attach" style="display: none;">
@@ -80,13 +69,16 @@
             </div>
 
 
+            
             <!-- Button to trigger file validation -->
-
-
 
             <input type="submit" value="Send" id="send-mail"">
         </form>
 
+        <!-- Loading -->
+        <!-- <div id="loading">Loading...</div> -->
+
+        <!-- Custom alert box -->
         <div id="custom-alert" class="alert-box">
             <div class="alert-content">
                 <span id="alert-message"></span>

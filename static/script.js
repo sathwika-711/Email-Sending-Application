@@ -78,6 +78,7 @@ function sendData() {
         .then((response) => response.json()) // Parse JSON response
         .then((data) => {
             // Show custom alert with the returned message
+            // document.getElementById('loading').style.display = 'block';
             showCustomAlert(data['message']);
             document.getElementById("myForm").reset();
             console.log("Message sent successfully " + data);
@@ -178,5 +179,6 @@ function readFile(file) {
 
     };
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file); // data: URL representing the file's data as a base64 encoded string.
+
 }   
