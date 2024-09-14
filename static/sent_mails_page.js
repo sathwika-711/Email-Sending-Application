@@ -32,6 +32,8 @@ function details(data)
             let file_name_dialog = document.getElementById('dialog-file-name');  // storing id of file name
             file_name_dialog.textContent = event.currentTarget.children[6].textContent; // get and store file name from current target
 
+
+
             // if no attachments, display dialog box with body of email
             if (file_name_dialog.textContent == "") {
                 document.getElementById('dialog-attachments').style.display = 'none';
@@ -44,6 +46,10 @@ function details(data)
             embebedElement.download = event.currentTarget.children[6].textContent;
             document.getElementById('dialog-attachments').style.display = 'block';   
            }   // file-name: passing file name to download (.download is an attribute of <a> tag)
+
+
+           document.getElementById('dialog-time').innerHTML = event.currentTarget.children[8].textContent;  
+
 
             // Show the dialog
             document.getElementById('dialog').style.display = 'flex';
@@ -97,6 +103,12 @@ function details(data)
         fileTypeCell.classList.add('hidden-td');
         fileTypeCell.textContent = get_data.attachment.file_type;
         row.appendChild(fileTypeCell);
+
+        // create and append time
+        const timeCell = document.createElement('td');
+        timeCell.classList.add('hidden-td');
+        timeCell.textContent = get_data['_timestamp'];
+        row.appendChild(timeCell);
     
         // Append the row to the table body
         document.querySelector('#emailTable tbody').appendChild(row);
