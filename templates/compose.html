@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Email Sending Application</title>
+</head>
+
+<body>
+    <div>
+    <h1>EMAIL SENDING APPLICATION</h1>
+    <div class="container">
+        <form id="myForm">
+            <!-- Sender name -->
+            <label id="from">SenderName:</label>
+            <input type="text" id="from_name" placeholder="Sendername"> <br>
+
+            <div class="receiver">
+                <!-- To address: receiver email-->
+                <div class="input-group">
+                    <label class="required">To MailID: </label>
+                    <input type="email" id="to" name="to_email" placeholder="ex:example.12@gmail.com, example.12@gmail.com,.." required>
+                </div>
+            
+                <!-- Receiver name -->
+                <div class="input-group">
+                    <label >Receiver Name:</label>
+                    <input type="text" id="to_name" placeholder="Receivername1,receivername2,..">
+                </div>
+            </div>
+            <br>            
+            <!-- To address: receiver email
+            <label class="required">To MailID: </label>
+            <input type="email" id="to" name="to" placeholder="ex:example.12@gmail.com" required> <br>
+
+            <!-- Receiver name 
+            <label id="to_name">ReceiverName:</label>
+            <input type="text"  name="to_name" placeholder="Receivername"> <br> -->
+
+            <!-- Subject -->
+            <label class="required">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Write Subject here...." required> <br>
+
+            <!-- Body -->
+            <label class="required" name="info">Body:</label> <br>
+            <textarea id="body" name="body" cols="12" rows="5" placeholder="Write Body here...." required></textarea> <br>
+
+            <!-- Attachments -->
+            <label for="file" id="file-label">Attachments:</label>
+            <select id="format" onchange="handleFileTypeChange()">
+                <option value="none">Select an option</option>
+                <option value="attach">Attach File</option>
+                <option value="photo">Insert photo</option>
+            </select>
+            <br>
+
+            <!-- <input type="file" id="file-input" style="display: none;" accept="image/*,.pdf,.docx">
+            <input type="button" id="file-button" value="Attach" style="display:none">
+            <p id="file-error" style="color:red; display:none;">File is too large.</p>
+            <br> -->
+
+            <!-- file upload -->
+            <div class="file-upload-container">
+                <input type="file" id="file-input" style="display: none;" accept="image/*,.pdf,.docx">
+                <input type="button" id="file-button" value="Attach" style="display: none;">
+                <p id="file-error" style="color:red; display:none;">File is too large.</p>
+                <span id="file-name" class="file-name"></span>
+            </div>
+
+
+            
+            <!-- Button to trigger file validation -->
+
+            <input type="submit" value="Send" id="send-mail"">
+        </form>
+
+        <!-- Loading -->
+        <!-- <div id="loading">Loading...</div> -->
+
+        <!-- Custom alert box -->
+        <div id="custom-alert" class="alert-box">
+            <div class="alert-content">
+                <span id="alert-message"></span>
+                <br><br>
+                <button id="close-button">OK</button>
+            </div>
+    </div>
+
+    <!-- <p id="error-message" style="color:red;"></p> -->
+    </div>
+    <!-- <footer>
+        <p>&copy; 2024 Email Application</p>
+    </footer> -->
+    </div>
+    
+</body>
+<script src="{{url_for('static',filename='bulkemails.js')}}"></script>
+
+</body>
+
+</html>

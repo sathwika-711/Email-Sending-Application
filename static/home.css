@@ -1,0 +1,77 @@
+
+
+
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('home.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Container for home page content */
+.home-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1100px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Header styles */
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    /* transform: translateX(200px); Moves element 100px to the right */
+    animation: fadeleft 2s ease-out;
+
+}
+@keyframes fadeleft {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+/* Compose button styles */
+.compose-btn {
+    background-color: #4dbeff; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Ensure no underline */
+}
+
+.compose-btn:hover {
+    background-color: #3aa7e2;
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Optional: Ensure anchor tags with compose-btn class have no underline */
+a.compose-btn {
+    text-decoration: none !important; /* Ensure no underline */
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}

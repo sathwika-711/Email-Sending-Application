@@ -10,10 +10,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-image: url("Email.jpg");
+	background-image: url("img.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+
+
 }
 body::before {
 	content: "";
@@ -22,58 +24,33 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("Email.jpg");
+	background-image: url("img.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	filter: blur(8px); /* Blur effect */
 	z-index: -1; /* Ensure the pseudo-element is behind the content */
 }
-/* Container with white transparent background */
-/* .container {
-    background-color: rgba(255, 255, 255, 0.6); /* White with 80% transparency 
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    max-width: 100%;
-    width: 80%;
-    max-width: 500px; /* Maximum width for larger screens 
-    box-sizing: border-box;
-} */
 
-
-/* Centering the h1 heading at the top of the container */
-/* h1 {
-    text-align: center;
-    font-size: 36px;
-    color: #333; /* Change color as per your design 
-    margin-bottom: 20px; /* Space between the heading and container 
-    padding-top: 10px; /* Optional padding 
-    font-weight: bold;
-    z-index: 1; /* Ensures it stays above the blurred background 
-    position: relative;
+h1 {
+	text-align: center;
 }
-
-/* Optional styling to ensure container doesn't overlap the heading 
-.container {
-    margin-top: 40px; /* Adjust margin to create space between the heading and the container 
-} */
-
-
-
+h2 {
+	text-align: right;
+}
 /* Container with increased width and height */
 .container {
 	background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
 	padding: 25px; /* Increased padding */
 	border-radius: 15px; /* Slightly larger border radius */
 	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for better visibility */
-	width: 80%; /* Increased width (80% of viewport width) */
+	width: 200%; /* Increased width (80% of viewport width) */
 	max-width: 800px; /* Maximum width for larger screens */
 	height: auto; /* Automatic height adjustment based on content */
 	min-height: 500px; /* Minimum height for better design */
 	box-sizing: border-box;
 	backdrop-filter: blur(10px); /* Optional: Apply a blur effect */
-	margin: 0 auto; /* Center the container horizontally */
+	margin-right: 300px ; /* Center the container horizontally */
 }
 
 /* Form Styles */
@@ -152,14 +129,6 @@ select {
 	flex:1;
 }
 
-
-
-/* Error Message */
-#error-message {
-	color: red;
-	font-size: 14px;
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
 	.container {
@@ -177,24 +146,63 @@ select {
 
 /* File Upload */
 
-/* Container for file upload */
+/* Container for file upload 
 .file-upload-container {
-	display: flex; /* Align items side by side */
-	align-items: center; /* Vertically center items */
-	gap: 10px; /* Space between file input and button */
-	margin-top: 8px; /* Space above the container */
+	display: flex; /* Align items side by side 
+	align-items: center; /* Vertically center items 
+	gap: 20px; /* Space between file input and button 
+	margin-top: 5px; /* Space above the container 
 }
 
-/* Styling for file name display */
+/* Styling for file name display 
 .file-name {
-	display: block; /* Display as block for new line */
-	margin-top: 10px; /* Space above file name */
-	font-size: 14px; /* Font size for file name */
-	color: #333; /* Color of file name text */
+	display: block; /* Display as block for new line 
+	margin-top: 5px; /* Space above file name 
+	font-size: 14px; /* Font size for file name 
+	color: #333; /* Color of file name text 
+}*/
+/* Center the file upload container */
+.file-upload-container {
+    display: flex;
+    flex-direction: row;      /* Align items vertically */
+    justify-content: center;     /* Centers items vertically */
+    align-items: center;         /* Centers items horizontally */
+    margin: 20px 0;            /*  Adds some space around the container */
+    width: 100%;
 }
+
+/* Style for the file input button */
+#file-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Optional: Add hover effect for the file button */
+#file-button:hover {
+    background-color: #0056b3;
+}
+
+/* File name style */
+.file-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Error message styling */
+#file-error {
+    color: red;
+    margin-top: 10px;
+	font-size: 14px;
+}
+
 
 /* Alert box */
-
 /* Hide the alert by default */
 .alert-box {
 	display: none; /* Hidden by default */
@@ -239,3 +247,14 @@ label.required::after {
 	content: " *"; /* Adds a red asterisk */
 	color: red; /* Makes the asterisk red */
 }
+
+/* footer styling 
+footer {
+    background: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+	margin-top: 40px;
+	height: auto;
+}
+	*/

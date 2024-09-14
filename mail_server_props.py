@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import base64
 from email.mime.base import MIMEBase
 from email import encoders
-
+import mongo_service
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -20,7 +20,7 @@ password = os.getenv('SMTP_USER_PASSWORD')
 
 
 # Setting up SMTP
-def send_mail(receiver_email, email_content):
+def send_mail(sender_name, subject, body, attachments, receiver_email, email_content):
     # Connect to the server and send the email
     print("connecting to smtp server")
 
@@ -34,6 +34,11 @@ def send_mail(receiver_email, email_content):
             print("sending email")
             server.sendmail(user_name, receiver_email,
                             email_content.as_string())
+            
+            print(email_content)  # prints the email content in mime format
+            # calling insert mail function to send details to insert in mongodb after sending mail (i.e only sent mails are stored in database)
+            mongo_service.insert_mail(sender_name, subject, body, attachments, receiver_email)
+
             print('Email sent successfully!')
 
         except Exception as e:
@@ -56,31 +61,24 @@ def send_mail_with_details(sender_name, to_email, subject, body, attachments):
 
     if file_name is not None and file_content is not None:
         print("sending attachments")
-
-        decoded_file = base64.b64decode(file_content)  # decoding the file
+        decoded_file = base64.b64decode(file_content)  # decoding the file_content
         print("file content : ", decoded_file)  # prints in binary format
-
         # Create a MIMEBase object for the attachment
         attachMime = MIMEBase('application', 'octet-stream')
-        attachMime.set_payload(decoded_file)
-
+        attachMime.set_payload(decoded_file) # Attach the payload to the MIME object
         # Encode the payload using Base64
         encoders.encode_base64(attachMime)
-
         # Add a header to the attachment
         attachMime.add_header('Content-Disposition',
                               f'attachment; filename="{file_name}"')
-
         # Attach the file to the email
         msg.attach(attachMime)
 
     # Create a multipart message
-
     msg.attach(MIMEText(body, 'html'))
 
     print("msg : ", msg)
     print("sending email")
-
-    send_mail(to_email, msg)
+    send_mail(sender_name, subject, body, attachments, to_email, msg) #to_email and msg are passed to send a mail, other arguments(also to_emails) are for inserting into database
 
     return "Email sent successfully.!!"

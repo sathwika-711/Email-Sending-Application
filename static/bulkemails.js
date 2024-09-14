@@ -23,27 +23,48 @@ function sendData() {
     // confirm("send this message?")
     // fetching values from Html fields
     sender_name = document.getElementById("from_name").value;
-    to_email = document.getElementById("to").value;
-    receiver_name = document.getElementById("to_name").value;
+    bulk_emails = document.getElementById("to").value;
+    receiver_names = document.getElementById("to_name").value;
     subject = document.getElementById("subject").value;
     body = document.getElementById("body").value;
 
     // simple form check
-    if (to_email == "" || subject == "" || body == "") {
+    if (bulk_emails == "" || subject == "" || body == "") {
         showCustomAlert("Fill the required fields..");
         return;
     }
+
+    //storing bulk emails in an array and validating emails
+    let bulk = bulk_emails.split(",").map(email => email.trim());    ; //Split the comma-separated values into arrays
+    console.log(bulk)
+    bulk.forEach(function(to_email) {
+        console.log(to_email)
     // validating email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!to_email.trim().match(emailRegex)) {
         showCustomAlert("Please provide valid email");
         return;
     }
+      });
+    
+    // storing receiver names in an array
+    let to_name = receiver_names.split(",").map(name => name.trim());
+    ;
+    console.log(to_name)
+
+    // Create an array of objects to store in JSON
+    let dataArray = [];
+    for (let i = 0; i < bulk.length; i++) {
+        dataArray.push({
+            "email": bulk[i],
+            "receiver_name": to_name[i] || ""  // Use an empty string if name is not provided
+        });
+    }
 
     // displaying the fetched values
     console.log(sender_name);
-    console.log(to_email);
-    console.log(receiver_name);
+    console.log(bulk_emails);
+    console.log(to_name);
     console.log(subject);
     console.log(body);
 
@@ -54,11 +75,11 @@ function sendData() {
     // creating json data
     var raw = JSON.stringify({
         "sender_name": sender_name,
-        to: to_email,
-        "receiver_name": receiver_name,
+        to: dataArray,
         "subject": subject,
         "body": body,
         attachments: {
+            "file_type" : file_type,
             "file_name": file_name,
             "file_content": file_content
         }
@@ -75,7 +96,7 @@ function sendData() {
 
     //call to backend
     // Fetch message from Flask and show in the alert box
-    fetch("http://localhost:5000/sendmail", requestOptions) // Fetches the message from Flask route
+    fetch("http://localhost:5000/bulkmails", requestOptions) // Fetches the message from Flask route
         .then((response) => response.json()) // Parse JSON response
         .then((data) => {
             // Show custom alert with the returned message
@@ -83,6 +104,7 @@ function sendData() {
             showCustomAlert(data['message']);
             document.getElementById("myForm").reset();
             console.log("Message sent successfully " + data);
+
         })
         .catch((error) => {
             showCustomAlert("Error in Sending...!! \n" + error.message);
@@ -90,11 +112,12 @@ function sendData() {
             document.getElementById("myForm").reset();
         });
 
-    // //call to backend
-    //  fetch("http://192.168.100.8:5000/sent_emails", requestOptions)
-    //  	.then((response) => response.text())   //handle the server reply
-    //  	.then((result) => console.log(result)) // if our app.py receives the request then it stroes the return value from that endpoint in result and prints its on console
-    //  	.catch((error) => console.log("error", error)); //used to handle errors that may occur during http request
+
+    //call to backend
+    fetch("http://192.168.100.8:5000/sent_emails", requestOptions)
+     	.then((response) => response.json())   //handle the server reply
+     	.then((result) => console.log(result)) // if our app.py receives the request then it stroes the return value from that endpoint in result and prints its on console
+     	.catch((error) => console.log("error", error)); //used to handle errors that may occur during http request
 }
 
 function showCustomAlert(message) {
@@ -141,7 +164,7 @@ function validateFileSize(event) {
     // Check file size
     const file = fileInput.files[0]; //fetching selected file
     file_name = file.name; //fetching name of the file
-    console.log(file.type + " " + file.size + " " + file.name);
+    console.log("165 : " + file.type + " " + file.size + " " + file.name);
 
     // max size validation
     if (format == "photo" && file.size > 1 * 1024 * 1024) {
@@ -171,16 +194,26 @@ function readFile(file) {
     // When the file is successfully read, log its contents
     reader.onload = function (e) {
         // Log the file content or perform any other action with the file
-        console.log(file.type);
+        console.log("195 file_type : " + file.type);
         file_type = file.type;
         file_content = e.target.result; //returns the result of the file reading operation (readastext or dataurl or arraybuffer)
+        console.log("\n\n\n\n\n file_content : " + file_content);
         file_content = file_content.substring(file_content.indexOf(",") + 1);
         // console.log("e : " + e.target.result) 
         // console.log("reader.result: " + reader.result);   
-        // console.log("file_content: " + file_content);
+        console.log("file_content: " + file_content);
 
     };
 
     reader.readAsDataURL(file); // data: URL representing the file's data as a base64 encoded string.
 
 }   
+
+    //  fetch("http://192.168.100.8:5000/showsent_mails", requestOptions)
+    //  	.then((response) => response.text())   //handle the server reply
+    //  	.then((result) => console.log(result)) // if our app.py receives the request then it stroes the return value from that endpoint in result and prints its on console
+    //  	.catch((error) => console.log("error", error)); //used to handle errors that may occur during http request
+
+
+// var emails = {{ emails | tojson }};
+//         console.log(emails);
