@@ -14,22 +14,26 @@
     <div class="table" id="sent_emails_table">
         <section class="table__header">
             <section class="table__header left">
-                <a href="/"><h1>HOME</h1></a>
-           </section>
+                <a href="/" style="text-decoration: none; color: black;">
+                    <h1>HOME</h1>
+                </a>
+            </section>
             <section class="table__header center">
                 <h1>SENT EMAILS</h1>
             </section>
             <section class="table__header right">
-                <h1>COMPOSE</h1>
+                <a href="/compose" style="text-decoration: none; color: black;">
+                    <h1>COMPOSE</h1>
+                </a>
             </section>
         </section>
-            
+
         <section class="table__body">
             <table id="emailTable">
                 <thead>
-                    <tr>    
-                        <th>Sendername</th>
-                        <th>To</th>
+                    <tr>
+                        <th>Sender</th>
+                        <th>To Email ID</th>
                         <th>Receiver Name</th>
                         <th>Subject</th>
                         <th class="hidden-td">Body</th>
@@ -45,11 +49,11 @@
         </section>
     </div>
 
-      <!-- Dialog Box (Adds body and attachments of individual email) -->
+    <!-- Dialog Box (Adds body and attachments of individual email) -->
     <div id="dialog" class="dialog">
         <div class="dialog-content">
             <span id="close-btn" class="close-btn" onclick="closeDialog()">&times;</span>
-    
+
             <div>
                 <h2>Email Details</h2> <br> <br>
             </div>
@@ -58,7 +62,7 @@
                 <h4 style="display: inline;">Time :</h4>
                 <p id="dialog-time"></p> <br>
             </div>
-            
+
             <div class="section">
                 <h4>Email Body:</h4>
                 <p id="dialog-body"></p> <br>
@@ -67,24 +71,13 @@
             <div id="dialog-attachments" class="section">
                 <h4>Attachments:</h4>
                 <p id="dialog-file-name"></p>
-                <a class="download-btn" id="document-dialog" >Click to Download !</a>
+                <a class="download-btn" id="document-dialog">Click to Download !</a>
             </div>
-
-
-            <br>
-            <!-- <button id="close-button" onclick="closeDialog()">OK</button> -->
         </div>
     </div>
 
 
 
 </body>
-
-<script  src="{{ url_for('static', filename='sent_mails_page.js') }}"></script>
-
-
-<style>
-
-</style>
-
+    <script src="{{ url_for('static', filename='sent_mails_page.js') }}"></script>
 </html>

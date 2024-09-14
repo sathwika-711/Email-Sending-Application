@@ -112,12 +112,6 @@ function sendData() {
             document.getElementById("myForm").reset();
         });
 
-
-    //call to backend
-    fetch("http://192.168.100.8:5000/sent_emails", requestOptions)
-     	.then((response) => response.json())   //handle the server reply
-     	.then((result) => console.log(result)) // if our app.py receives the request then it stroes the return value from that endpoint in result and prints its on console
-     	.catch((error) => console.log("error", error)); //used to handle errors that may occur during http request
 }
 
 function showCustomAlert(message) {

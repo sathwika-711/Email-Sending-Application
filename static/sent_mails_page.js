@@ -33,7 +33,6 @@ function details(data)
             file_name_dialog.textContent = event.currentTarget.children[6].textContent; // get and store file name from current target
 
 
-
             // if no attachments, display dialog box with body of email
             if (file_name_dialog.textContent == "") {
                 document.getElementById('dialog-attachments').style.display = 'none';

@@ -1,19 +1,11 @@
 from flask import Flask, jsonify, render_template, request, url_for, redirect
 from flask_cors import CORS
-# from pymongo import MongoClient
 import mail_server_props
 import base64
 import traceback
-# import gridfs
-from bson import ObjectId
-from io import BytesIO
-import os
 import mongo_service
 
 app = Flask(__name__)
-# disable CORS
-# cors = CORS(app, resources={r"": {"origins": "*"}})
-# app.config['CORS_HEADERS'] = 'Content-Type'
 # for requesting to access the data from another webpage i.e here,javascript cors-cross origin resource sharing
 CORS(app)
 
@@ -51,12 +43,12 @@ def mail_body():
     body = data["body"]
     attachments = data["attachments"]  # attachments 
     # write_to_file(attachments)
-    # if receiver_name is not None:  
-    #     to_email = f'{receiver_name} <{to_email}>'
-    #     mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
+    if receiver_name is not None:  
+        to_email = f'{receiver_name} <{to_email}>'
+        mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
     
-    # else:
-    #     mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
+    else:
+        mail_server_props.send_mail_with_details(sender_name, to_email, sub, body, attachments)
     return jsonify({"message" : "Email sent Successfully..!!"})
 
 # sending bulk mails
@@ -65,7 +57,7 @@ def bulkmails():
     # mail_server_props.connect_to_smtp_sever()
     # get data from JSON data of Javascript
     data = request.get_json()
-    print("printing email info :", data)
+    # print("printing email info :", data)
     sender_name = data["sender_name"]
     sub = data["subject"]
     body = data["body"]
@@ -118,8 +110,7 @@ def handle_exception(e):
 @app.route('/getsentmails', methods=["GET"])
 def getsentmails():
     response = mongo_service.get_all_from_db()
-    print("response : ", response)
-
+    # print("response : ", response)
     return response
 
 

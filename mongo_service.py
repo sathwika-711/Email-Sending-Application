@@ -29,7 +29,7 @@ def insert_mail(sender_name, subject, body, attachment, receiver_email):
                 'file_content' : attachment['file_content']
             }
         }
-        print("inserting mail in db : ", insert_obj)
+        # print("inserting mail in db : ", insert_obj)
         ret_ins = sent_emails_collection.insert_one(insert_obj)  
     
     return ret_ins
@@ -46,5 +46,5 @@ def get_all_from_db():
         emails = sent_emails_collection.find({}, {"_id": 0}).sort('_timestamp', -1)
         emails_list = list(emails)
         emails_list
-        print("emails : ", emails_list)
+        # print("emails : ", emails_list)
         return emails_list   # returns list of all mails to js 

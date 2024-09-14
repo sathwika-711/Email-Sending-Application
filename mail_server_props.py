@@ -35,7 +35,7 @@ def send_mail(sender_name, subject, body, attachments, receiver_email, email_con
             server.sendmail(user_name, receiver_email,
                             email_content.as_string())
             
-            print(email_content)  # prints the email content in mime format
+            # print(email_content)  # prints the email content in mime format
             # calling insert mail function to send details to insert in mongodb after sending mail (i.e only sent mails are stored in database)
             mongo_service.insert_mail(sender_name, subject, body, attachments, receiver_email)
 
@@ -62,7 +62,7 @@ def send_mail_with_details(sender_name, to_email, subject, body, attachments):
     if file_name is not None and file_content is not None:
         print("sending attachments")
         decoded_file = base64.b64decode(file_content)  # decoding the file_content
-        print("file content : ", decoded_file)  # prints in binary format
+        # print("file content : ", decoded_file)  # prints in binary format
         # Create a MIMEBase object for the attachment
         attachMime = MIMEBase('application', 'octet-stream')
         attachMime.set_payload(decoded_file) # Attach the payload to the MIME object
@@ -77,7 +77,7 @@ def send_mail_with_details(sender_name, to_email, subject, body, attachments):
     # Create a multipart message
     msg.attach(MIMEText(body, 'html'))
 
-    print("msg : ", msg)
+    # print("msg : ", msg)
     print("sending email")
     send_mail(sender_name, subject, body, attachments, to_email, msg) #to_email and msg are passed to send a mail, other arguments(also to_emails) are for inserting into database
 

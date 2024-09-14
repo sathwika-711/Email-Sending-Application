@@ -1,0 +1,295 @@
+/* General Styles */
+
+/* body styling */
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: url("compose.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+
+}
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("compose.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(8px); /* Blur effect */
+	z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+
+
+ /* Container for the header */
+ .header {
+	display: flex;
+	justify-content: space-between; /* Align left, center, and right sections */
+	align-items: center; /* Center vertically */
+	padding: 15px;
+}
+
+.header.left {
+	text-align: left; /* Align text to the left */
+}
+
+.header.center {
+	text-align: center; /* Center text */
+	margin: auto;	
+}
+
+.header.right {
+	text-align: right; /* Align text to the right */
+}
+
+/* Links styling */
+a {
+	text-decoration: none;
+	color: rgb(143, 60, 115);
+}
+
+/* Headings */
+h1, h3 {
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+/* Container with increased width and height */
+.container {
+	background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+	padding: 25px; /* Increased padding */
+	border-radius: 15px; /* Slightly larger border radius */
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for better visibility */
+	width: 200%; /* Increased width (80% of viewport width) */
+	max-width: 800px; /* Maximum width for larger screens */
+	height: auto; /* Automatic height adjustment based on content */
+	min-height: 500px; /* Minimum height for better design */
+	box-sizing: border-box;
+	backdrop-filter: blur(10px); /* Optional: Apply a blur effect */
+	margin-right: 300px ; /* Center the container horizontally */
+}
+
+/* Form Styles */
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Input Fields */
+label {
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #333;
+}
+
+input[type="email"],
+input[type="text"],
+textarea,
+select {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #f7ebeb;
+	border-radius: 6px;
+	font-size: 16px;
+	width: 100%;
+	box-sizing: border-box;
+}
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+	border-color: #007bff;
+	outline: none;
+}
+/* Textarea */
+textarea {
+	resize: none;
+	/* background-color: #f7ebeb; */
+	/* border: 1px solid #f7ebeb; */
+}
+
+/* Send Button */
+input[type="submit"] {
+	padding: 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+/* Attachments Dropdown */
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	/* background-color: #f7ebeb; */
+}
+
+/* receiver fields */
+.receiver {
+    display: flex;
+    gap: 20px; /* Adds spacing between the two fields */
+    align-items: center; /* Align items vertically in the center */
+	width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+	flex:1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+	.container {
+		max-width: 90%; /* Adjust width for tablets and small screens */
+		padding: 20px; /* Adjust padding */
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		max-width: 95%; /* Adjust width for mobile devices */
+		padding: 15px; /* Adjust padding */
+	}
+}
+
+/* File Upload */
+
+/* Container for file upload 
+.file-upload-container {
+	display: flex; /* Align items side by side 
+	align-items: center; /* Vertically center items 
+	gap: 20px; /* Space between file input and button 
+	margin-top: 5px; /* Space above the container 
+}
+
+/* Styling for file name display 
+.file-name {
+	display: block; /* Display as block for new line 
+	margin-top: 5px; /* Space above file name 
+	font-size: 14px; /* Font size for file name 
+	color: #333; /* Color of file name text 
+}*/
+/* Center the file upload container */
+.file-upload-container {
+    display: flex;
+    flex-direction: row;      /* Align items vertically */
+    justify-content: center;     /* Centers items vertically */
+    align-items: center;         /* Centers items horizontally */
+    margin: 20px 0;            /*  Adds some space around the container */
+    width: 100%;
+}
+
+/* Style for the file input button */
+#file-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Optional: Add hover effect for the file button */
+#file-button:hover {
+    background-color: #0056b3;
+}
+
+/* File name style */
+.file-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Error message styling */
+#file-error {
+    color: red;
+    margin-top: 10px;
+	font-size: 14px;
+}
+
+
+/* Alert box */
+/* Hide the alert by default */
+.alert-box {
+	display: none; /* Hidden by default */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Alert box content */
+.alert-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	width: 300px;
+}
+
+/* Button styling */
+.alert-content button {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.alert-content button:hover {
+	background-color: #45a049;
+}
+
+/* Required asterisk */
+label.required::after {
+	content: " *"; /* Adds a red asterisk */
+	color: red; /* Makes the asterisk red */
+}
+
+/* footer styling 
+footer {
+    background: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+	margin-top: 40px;
+	height: auto;
+}
+	*/

@@ -16,7 +16,7 @@
 
 body {
 	min-height: 100vh;
-	background: url("background.jpg") center / cover;
+	background: url("sentmails.jpg") center / cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -34,16 +34,7 @@ div.table {
 	overflow: hidden;
 }
 
-/* .table__header {
-    /* margin-top: auto; 
-    width: 100%;
-    height: 8%;
-    /* background-color: #fff4; 
-    padding: .8rem 1rem;
-    display: flex;
-    justify-content: center; /* Centers horizontally 
-    align-items: center;     /* Centers vertically 
-} */
+/* table Header styling */
 .table__header {
 	display: flex;
 	justify-content: space-between; /* Space out the child sections */
@@ -152,6 +143,7 @@ tbody tr:nth-child(even) {
 tbody tr {
 	--delay: 0.1s;
 	transition: 0.5s ease-in-out var(--delay), background-color 0s;
+	cursor: pointer;
 }
 
 tbody tr.hide {
