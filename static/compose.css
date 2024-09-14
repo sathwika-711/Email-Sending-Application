@@ -1,16 +1,103 @@
-/* General Styles */
+/* navbar styling */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: rgba(104, 101, 101, 0.171); /* Transparent background */
+    backdrop-filter: blur(5px); /* Optional blur effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Left section (icon + text) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.navbar-left h2 {
+    font-size: 1.5rem;
+    color: #1f1818;
+}
+
+/* Right section (navbar items) */
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right a {
+    margin-left: 180px;
+    font-size: 1.4rem;
+	font-weight: 700;
+    color: #0e0505;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #144961; /* Highlight color on hover */
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .navbar-left h1 {
+        font-size: 1.2rem;
+    }
+
+    .navbar-right a {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+    .navbar-right a:last-child {
+        margin-right: 40px; /* Adjusted margin for smaller screens */
+    }
+}
+
+/* Style for the main container */
+.main {
+    /* display: flex; */
+    /* justify-content: center; Center horizontally */
+    /* align-items: center;     Center vertically */
+    height: calc(100vh - 100px); /* Full view height minus 100px */
+    position: relative;
+    top: 100px; /* 100px from the top */
+}
+
+
+
+
+
+
 
 /* body styling */
-
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	/* 	justify-content: center; */
+	/* align-items: center; */
 	height: 100vh;
-	background-image: url("compose.jpg");
+	background-image: url("compose2.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -24,51 +111,13 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("compose.jpg");
+	background-image: url("compose2.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	filter: blur(8px); /* Blur effect */
+	filter: blur(4px); /* Blur effect */
 	z-index: -1; /* Ensure the pseudo-element is behind the content */
 }
-
-
-
- /* Container for the header */
- .header {
-	display: flex;
-	justify-content: space-between; /* Align left, center, and right sections */
-	align-items: center; /* Center vertically */
-	padding: 15px;
-}
-
-.header.left {
-	text-align: left; /* Align text to the left */
-}
-
-.header.center {
-	text-align: center; /* Center text */
-	margin: auto;	
-}
-
-.header.right {
-	text-align: right; /* Align text to the right */
-}
-
-/* Links styling */
-a {
-	text-decoration: none;
-	color: rgb(143, 60, 115);
-}
-
-/* Headings */
-h1, h3 {
-	margin: 0;
-}
-
-
-
-
 
 
 
@@ -85,7 +134,19 @@ h1, h3 {
 	min-height: 500px; /* Minimum height for better design */
 	box-sizing: border-box;
 	backdrop-filter: blur(10px); /* Optional: Apply a blur effect */
-	margin-right: 300px ; /* Center the container horizontally */
+	margin-top: 20px;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.heading {
+	width: 100%;
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
 }
 
 /* Form Styles */
@@ -283,13 +344,3 @@ label.required::after {
 	color: red; /* Makes the asterisk red */
 }
 
-/* footer styling 
-footer {
-    background: #4CAF50;
-    color: #fff;
-    text-align: center;
-    padding: 10px 10px;
-	margin-top: 40px;
-	height: auto;
-}
-	*/

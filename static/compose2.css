@@ -1,0 +1,290 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: rgba(255, 255, 255, 0.171); /* Transparent background */
+    backdrop-filter: blur(5px); /* Optional blur effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px; /* Adjusted height */
+    z-index: 1000;
+}
+
+/* Left section (icon + text) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.navbar-left h1 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Right section (navbar items) */
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right a {
+    margin-left: 30px;
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #3bc1ff; /* Highlight color on hover */
+}
+
+.navbar-right a:last-child {
+    margin-right: 30px; /* Add spacing after the last item */
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .navbar-left h1 {
+        font-size: 1.2rem;
+    }
+
+    .navbar-right a {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+    .navbar-right a:last-child {
+        margin-right: 15px;
+    }
+}
+
+/* Body styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("compose2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Adding blur effect for background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("compose2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px); /* Blur effect */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+/* Centered heading */
+h2 {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Container centered vertically and horizontally */
+.container {
+    background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+    padding: 25px; /* Increased padding */
+    border-radius: 15px; /* Slightly larger border radius */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for better visibility */
+    width: 80%; /* Adjusted width */
+    max-width: 800px; /* Maximum width for larger screens */
+    min-height: 500px; /* Minimum height for better design */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px; /* Space between navbar and container */
+    position: relative;
+    z-index: 1;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Input Fields */
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="email"],
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #f7ebeb;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+}
+
+/* Send Button */
+input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Attachments Dropdown */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Receiver fields */
+.receiver {
+    display: flex;
+    gap: 20px; /* Adds spacing between the two fields */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* File Upload */
+.file-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* Style for the file input button */
+#file-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#file-button:hover {
+    background-color: #0056b3;
+}
+
+/* File name style */
+.file-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Error message styling */
+#file-error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Alert box */
+.alert-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* Button styling */
+.alert-content button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert-content button:hover {
+    background-color: #45a049;
+}
+
+/* Required asterisk */
+label.required::after {
+    content: " *";
+    color: red;
+}

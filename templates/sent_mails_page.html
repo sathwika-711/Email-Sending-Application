@@ -11,21 +11,27 @@
 </head>
 
 <body>
+    <header>
+        <!-- Transparent Navbar -->
+     <nav class="navbar">
+        <!-- Left: Icon and Text -->
+        <div class="navbar-left">
+            <img src="{{url_for('static', filename='logo.png')}}" alt="Icon">
+            <h2>Email</h2>
+        </div>
+
+        <!-- Right: Navigation Links -->
+        <div class="navbar-right">
+            <a href="/">Home</a>
+            <a href="{{url_for('compose')}}">Compose</a>
+            <a href="{{url_for('sentmailspage')}}">ViewSentEmails</a>
+        </div>
+    </nav>
+    </header>
+
     <div class="table" id="sent_emails_table">
         <section class="table__header">
-            <section class="table__header left">
-                <a href="/" style="text-decoration: none; color: black;">
-                    <h1>HOME</h1>
-                </a>
-            </section>
-            <section class="table__header center">
-                <h1>SENT EMAILS</h1>
-            </section>
-            <section class="table__header right">
-                <a href="/compose" style="text-decoration: none; color: black;">
-                    <h1>COMPOSE</h1>
-                </a>
-            </section>
+                <h1 style="text-align: center;">SENT EMAILS</h1>
         </section>
 
         <section class="table__body">

@@ -7,29 +7,36 @@
     <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
 </head>
 <body>
+    <header>
+        <!-- Transparent Navbar -->
+     <nav class="navbar">
+        <!-- Left: Icon and Text -->
+        <div class="navbar-left">
+            <img src="{{url_for('static', filename='logo.png')}}" alt="Icon">
+            <h2>Email</h2>
+        </div>
 
-
+        <!-- Right: Navigation Links -->
+        <div class="navbar-right">
+            <a href="/">Home</a>
+            <a href="{{url_for('compose')}}">Compose</a>
+            <a href="{{url_for('sentmailspage')}}">ViewSentEmails</a>
+        </div>
+    </nav>
+    </header>
     <div class="home-container">
         <header>
             <h1>"Welcome to your Email Sending Application! Effortlessly compose, send, and track your emails with attachments, all in one place. Whether sending to one recipient or many, we’ve made it simple, secure, and efficient. Let's get started!"</h1>
         </header>
         <div class="buttons">
             <div class="main-content">
-            <button class="compose-btn"><a href="{{url_for('compose')}}" style="text-decoration: none; color: rgb(12, 19, 19);">Compose</a></button>
+                <button class="compose-btn"><a href="{{url_for('compose')}}" style="text-decoration: none; color: rgb(12, 19, 19);">Compose</a></button>
+            </div>
+                <!-- <div class="main-content">
+                    <button class="compose-btn"><a href="{{url_for('sentmailspage')}}" style="text-decoration: none; color: rgb(12, 19, 19);">ViewSentEmails</a></button>
+                </div> -->
         </div>
-        <div class="main-content">
-            <button class="compose-btn"><a href="{{url_for('sentmailspage')}}" style="text-decoration: none; color: rgb(12, 19, 19);">ViewSentEmails</a></button>
-        </div>
-        </div>
-        
-
     </div>
 
-    <!-- <script>
-        function composeEmail() {
-            // Redirect to the compose page or show the compose form
-            window.location.href = '/compose'; // Assuming Flask has a '/compose' route
-        }
-    </script> -->
 </body>
 </html>

@@ -1,3 +1,78 @@
+/* navbar styling */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: rgba(41, 36, 36, 0.171); /* Transparent background */
+    backdrop-filter: blur(5px); /* Optional blur effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Left section (icon + text) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.navbar-left h2 {
+    font-size: 1.5rem;
+    color: #0e0c0c;
+}
+
+/* Right section (navbar items) */
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right a {
+    margin-left: 180px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1d1212;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #194a61; /* Highlight color on hover */
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .navbar-left h1 {
+        font-size: 1.2rem;
+    }
+
+    .navbar-right a {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+    .navbar-right a:last-child {
+        margin-right: 40px; /* Adjusted margin for smaller screens */
+    }
+}
+
+
 
 
 
@@ -13,7 +88,7 @@ body {
     background: url('home.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100vh;
     color: #fff;
@@ -28,7 +103,19 @@ body {
     width: 80%;
     max-width: 1100px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    /* Center the container on the page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between the buttons and other elements */
 }
+
 
 /* Header styles */
 header h1 {

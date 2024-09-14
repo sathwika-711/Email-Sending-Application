@@ -1,3 +1,78 @@
+/* navbar styling */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: rgba(104, 101, 101, 0.171); /* Transparent background */
+    backdrop-filter: blur(5px); /* Optional blur effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Left section (icon + text) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.navbar-left h2 {
+    font-size: 1.5rem;
+    color: #1f1818;
+}
+
+/* Right section (navbar items) */
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right a {
+    margin-left: 180px;
+    font-size: 1.4rem;
+	font-weight: 700;
+    color: #0e0505;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #144961; /* Highlight color on hover */
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .navbar-left h1 {
+        font-size: 1.2rem;
+    }
+
+    .navbar-right a {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+    .navbar-right a:last-child {
+        margin-right: 40px; /* Adjusted margin for smaller screens */
+    }
+}
+/* table styling */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -17,52 +92,34 @@
 body {
 	min-height: 100vh;
 	background: url("sentmails.jpg") center / cover;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	/* display: flex;
+	justify-content: center; */
+	/* align-items: center; */
 }
 
 div.table {
 	width: 82vw;
-	height: 90vh;
+	height: 86vh;
 	background-color: #fff5;
-
 	backdrop-filter: blur(7px);
 	box-shadow: 0 0.4rem 0.8rem #0005;
 	border-radius: 0.8rem;
-
 	overflow: hidden;
+	position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
 }
 
-/* table Header styling */
+
 .table__header {
-	display: flex;
-	justify-content: space-between; /* Space out the child sections */
-	align-items: center; /* Center align items vertically */
-	padding: 20px; /* Space inside the header */
-	/* background-color: #fff4; Light background color */
-	border-bottom: 1px solid #ddd; /* Border at the bottom */
-}
-
-/* General styling for the header sections */
-
-.table__header.left {
-	text-align: left; /* Align text to the left for the left section */
-}
-
-.table__header.center {
-	text-align: center; /* Center text inside the center section */
-}
-
-.table__header.right {
-	text-align: right; /* Align text to the right for the right section */
-}
-
-/* Header text styling */
-.table__header h2 {
-	margin: 0; /* Remove default margin */
-	font-size: 1.5em; /* Font size for the header text */
-	color: #333; /* Dark grey color for text */
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
 }
 
 .table__header .input-group {
